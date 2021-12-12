@@ -1,5 +1,5 @@
 //-----------------------------------------------------------------------------
-// CSCI2270 Course Project
+// C++ Data Structures Cheat Sheet
 //
 // Identification: singlyLinked.h
 //-----------------------------------------------------------------------------
@@ -27,7 +27,6 @@ struct Node
 	}
 };
 
-// Professor BST class
 class SinglyLinked
 {
     public:
@@ -39,7 +38,7 @@ class SinglyLinked
 
     private:
 		// add helpers here (if needed)
-        Node *root;
+        Node *head;
 };
 
 #endif
