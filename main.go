@@ -5,5 +5,5 @@ import (
 )
 
 func Print(s string) {
-	fmt.Println(s)
+	fmt.Println(s, "!!!!!")
 }
