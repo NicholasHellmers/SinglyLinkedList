@@ -1,9 +1,5 @@
 package algos
 
-import (
-	"fmt"
-)
-
-func Print(s string) {
-	fmt.Println(s)
+func TwoPlusTwo() int32 {
+	return (2 + 2)
 }
