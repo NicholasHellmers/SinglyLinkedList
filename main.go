@@ -1,9 +1,61 @@
-package algos
+package LinkedList
 
-import (
-	"fmt"
-)
+type SinglyLinkedList struct {
+	Head *ListNode
+}
 
-func Print(s string) {
-	fmt.Println(s, "!!!!!")
+type ListNode struct {
+	Val  interface{}
+	Next *ListNode
+}
+
+func (sll SinglyLinkedList) Search(Val interface{}) ListNode {
+
+	var curr ListNode = *sll.Head
+	var res ListNode = ListNode{}
+
+	for curr.Val != nil {
+		if curr.Val == Val {
+			res = curr
+			return res
+		}
+		curr = *curr.Next
+	}
+
+	return res
+}
+
+func (sll *SinglyLinkedList) Insert(Val interface{}) {
+	var newNode ListNode = ListNode{Val: Val, Next: sll.Head}
+	sll.Head = &newNode
+}
+
+func (sll *SinglyLinkedList) Delete(Val interface{}) {
+	var curr ListNode = *sll.Head
+	var prev ListNode = ListNode{}
+
+	for curr.Val != nil {
+		if curr.Val == Val {
+			if prev.Val == nil {
+				sll.Head = curr.Next
+			} else {
+				prev.Next = curr.Next
+			}
+		}
+		prev = curr
+		curr = *curr.Next
+	}
+}
+
+func (sll SinglyLinkedList) Values() []interface{} {
+	var curr ListNode = *sll.Head
+	var res []interface{} = []interface{}{}
+
+	for curr.Next != nil {
+		res = append(res, curr.Val)
+		curr = *curr.Next
+	}
+
+	res = append(res, curr.Val)
+	return res
 }

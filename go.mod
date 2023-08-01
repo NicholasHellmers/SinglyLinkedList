@@ -1,3 +1,3 @@
-module github.com/NicholasHellmers/algos
+module github.com/NicholasHellmers/LinkedList
 
 go 1.20
