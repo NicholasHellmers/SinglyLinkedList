@@ -51,3 +51,16 @@ func (sll *SinglyLinkedList) Delete(Val interface{}) {
 		curr = *curr.Next
 	}
 }
+
+func (sll SinglyLinkedList) Values() []interface{} {
+	var curr ListNode = *sll.Head
+	var res []interface{} = []interface{}{}
+
+	for curr.Next != nil {
+		res = append(res, curr.Val)
+		curr = *curr.Next
+	}
+
+	res = append(res, curr.Val)
+	return res
+}
