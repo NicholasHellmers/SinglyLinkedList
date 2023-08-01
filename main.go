@@ -30,20 +30,15 @@ func (sll *SinglyLinkedList) Insert(Val interface{}) {
 	sll.Head = &newNode
 }
 
-func (sll *SinglyLinkedList) Delete(Val interface{}) {
-	var curr ListNode = *sll.Head
-	var prev ListNode = ListNode{}
-
-	for curr.Val != nil {
-		if curr.Val == Val {
-			if prev.Val == nil {
-				sll.Head = curr.Next
-			} else {
-				prev.Next = curr.Next
-			}
+func (sll *SinglyLinkedList) Delete(curr *ListNode, prev *ListNode, Val interface{}) {
+	if curr.Val == Val {
+		if prev != nil {
+			prev.Next = curr.Next
+		} else {
+			sll.Head = curr.Next
 		}
-		prev = curr
-		curr = *curr.Next
+	} else {
+		sll.Delete(curr.Next, curr, Val)
 	}
 }
 
