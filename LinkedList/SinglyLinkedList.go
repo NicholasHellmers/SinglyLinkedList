@@ -9,9 +9,6 @@ type ListNode struct {
 	Next *ListNode
 }
 
-// This method takes a value to search in the list and returns the
-// first node that contains the value. If the value is not found,
-// the method returns an empty ListNode
 func (sll SinglyLinkedList) Search(Val interface{}) ListNode {
 
 	var curr ListNode = *sll.Head
@@ -28,8 +25,6 @@ func (sll SinglyLinkedList) Search(Val interface{}) ListNode {
 	return res
 }
 
-// This method takes a value to insert in the list and inserts it
-// at the beginning of the list
 func (sll *SinglyLinkedList) Insert(Val interface{}) {
 	var newNode ListNode = ListNode{Val: Val, Next: sll.Head}
 	sll.Head = &newNode
